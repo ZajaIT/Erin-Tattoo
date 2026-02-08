@@ -1163,14 +1163,20 @@ sectionTitles.forEach(title => {
 
 <script>
 
-// Offsety jen pro problémové sekce
-const sectionOffsets = {
+// Offsety pro PC
+const desktopOffsets = {
   services: 120,
   gallery: 50,
   contact: 60
 };
 
-// Vybereme menu + tlačítko
+// Offsety pro mobil (kvůli posunu sekcí)
+const mobileOffsets = {
+  services: 200,
+  gallery: 120,
+  contact: 140
+};
+
 const scrollLinks = document.querySelectorAll(
   "nav a[href^='#'], .btn[href^='#']"
 );
@@ -1181,27 +1187,23 @@ scrollLinks.forEach(link => {
 
     const id = this.getAttribute("href").substring(1);
 
-    // Domů a Studio necháme normálně
-    if (id === "home" || id === "about") {
-      return;
-    }
+    if (id === "home" || id === "about") return;
 
-    // Jen problematické sekce řešíme ručně
-    if (!sectionOffsets[id]) {
-      return;
-    }
+    const isMobile = window.innerWidth <= 600;
+
+    const offsets = isMobile ? mobileOffsets : desktopOffsets;
+
+    if (!offsets[id]) return;
 
     e.preventDefault();
 
     const section = document.getElementById(id);
     if (!section) return;
 
-    const offset = sectionOffsets[id];
-
     const y =
       section.getBoundingClientRect().top +
       window.pageYOffset -
-      offset;
+      offsets[id];
 
     window.scrollTo({
       top: y,
@@ -1211,7 +1213,6 @@ scrollLinks.forEach(link => {
   });
 
 });
-
 </script>
 
   <script>
@@ -1245,6 +1246,7 @@ menu.querySelectorAll("a").forEach(link => {
   
 </body>
 </html>
+
 
 
 
