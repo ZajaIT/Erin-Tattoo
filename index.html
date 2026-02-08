@@ -779,6 +779,25 @@ nav ul.open ~ .hamburger .icon-close {
   }
 
 }
+
+    /* FIX GAP ABOVE HERO ON MOBILE */
+
+@media (max-width: 600px) {
+
+  .hero {
+    margin-top: 0;   /* zruší desktopový posun */
+  }
+
+  header {
+    position: fixed;
+    width: 100%;
+  }
+
+  body {
+    padding-top: 70px; /* výška headeru */
+  }
+
+}
   </style>
 </head>
 <body>
@@ -1216,6 +1235,7 @@ menu.querySelectorAll("a").forEach(link => {
   
 </body>
 </html>
+
 
 
 
