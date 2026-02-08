@@ -549,6 +549,151 @@ textarea.error {
   transform: translateY(0);
   transition-delay: 0.2s;
 }
+
+    /* =====================
+   MOBILE RESPONSIVE
+   ===================== */
+
+@media (max-width: 600px) {
+
+  /* HEADER */
+
+  .header-inner {
+    padding: 10px 20px;
+    min-height: 70px;
+  }
+
+  nav ul {
+    gap: 12px;
+  }
+
+  nav li {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  /* HERO */
+
+  .hero {
+    height: auto;
+    min-height: 90vh;
+    margin-top: 60px;
+    padding: 40px 20px;
+  }
+
+  .hero-content img {
+    max-width: 220px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    letter-spacing: 3px;
+    gap: 10px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .btn {
+    padding: 12px 30px;
+    font-size: 12px;
+  }
+
+  /* SECTIONS */
+
+  section {
+    padding: 70px 20px;
+  }
+
+  .section-title h2 {
+    font-size: 30px;
+  }
+
+  .section-title span {
+    font-size: 11px;
+  }
+
+  /* ABOUT */
+
+  .about {
+    gap: 40px;
+    margin-top: -40px;
+  }
+
+  .about img {
+    max-width: 100%;
+  }
+
+  .about h3 {
+    font-size: 24px;
+  }
+
+  .about p {
+    font-size: 14px;
+  }
+
+  /* SERVICES */
+
+  .services {
+    gap: 20px;
+  }
+
+  .service {
+    padding: 30px 20px;
+  }
+
+  .service h4 {
+    font-size: 20px;
+  }
+
+  /* GALLERY */
+
+  .gallery {
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+  }
+
+  .gallery img {
+    height: 260px;
+  }
+
+  /* CONTACT */
+
+  .contact {
+    padding: 30px 25px;
+    margin-top: -20px;
+  }
+
+  .contact-info p {
+    font-size: 14px;
+  }
+
+  form input,
+  form textarea {
+    font-size: 14px;
+  }
+
+  form button {
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding: 25px 15px;
+  }
+
+  footer p {
+    font-size: 11px;
+  }
+
+}
   </style>
 </head>
 <body>
@@ -951,3 +1096,4 @@ scrollLinks.forEach(link => {
 
 </body>
 </html>
+
