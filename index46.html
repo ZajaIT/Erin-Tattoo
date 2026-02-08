@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERIN Tattoo Studio</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+
+html {
+  scroll-behavior: smooth;
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+  font-family: 'Montserrat', sans-serif;
+  background: #050505;
+  color: #f1f1f1;
+  line-height: 1.7;
+}
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+  background: #000;
+  border-bottom: 2px solid #111;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow: hidden;
+}
+    .header-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90px;
+}
+
+    .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+    .logo img {
+      height: 60px;
+    }
+
+    .logo span {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-size: 22px;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  padding-bottom: 6px;
+}
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
+
+    nav li {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 600;
+  transition: transform .3s;
+}
+
+nav li:hover {
+  transform: translateY(-2px);
+}
+    nav li::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: .3s;
+    }
+
+.logo span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s;
+}
+
+.logo:hover span::after {
+  transform: scaleX(1);
+}
+    nav li:hover::after {
+      width: 100%;
+    }
+
+nav li.active::after {
+  width: 100%;
+}
+
+    /* HERO */
+
+    .hero {
+  height: 95vh;
+  background:
+    linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.95)),
+    url("https://source.unsplash.com/1920x1080/?tattoo,studio");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  scroll-margin-top: 90px;
+
+  margin-top: 70px; /* POSUN POD MENU */
+}
+
+.hero-content {
+  width: 100%;
+}
+    .hero-content img {
+      max-width: 350px;
+      margin: 0 auto 5px;
+    }
+
+    .hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  letter-spacing: 6px;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+
+  width: 100%;
+}
+
+.hero h1::before,
+.hero h1::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #fff;
+  opacity: 0.7;
+}
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 45px;
+      border: 2px solid #fff;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* SECTIONS */
+
+    section {
+  max-width: 1400px;
+  margin: auto;
+  padding: 110px 40px;
+}
+
+/* SROVNÁNÍ MEZER PODLE ABOUT */
+
+#services,
+#gallery,
+#contact {
+  padding-top: 30px;
+}
+
+#about,
+#services,
+#gallery,
+#contact {
+  padding-bottom: 40px;
+}
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    .section-title span {
+      color: #888;
+      letter-spacing: 3px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    /* ABOUT */
+
+    .about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  margin-top: -80px;
+}
+
+/* POSUN "KDO JSME" */
+
+.section-title span {
+  position: relative;
+  top: -20px;
+}
+    .about img {
+  border: 3px solid #111;
+  filter: grayscale(50%);
+  max-width: 70%;
+  margin: 0 auto;
+  transition: .4s;
+}
+
+.about img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+  border-color: #fff;
+}
+
+    .about h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+
+    /* SERVICES */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  margin-top: 40px;
+}
+
+.service {
+  background: rgba(15, 15, 15, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 14px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.05),
+    transparent
+  );
+  opacity: 0;
+  transition: .4s;
+}
+
+.service:hover::before {
+  opacity: 1;
+}
+
+.service:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(20, 20, 20, 0.85);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.service h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.service p {
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+    /* GALLERY */
+
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 25px;
+
+  margin-top: -50px; /* posun fotek nahoru */
+}
+
+    .gallery img {
+      height: 350px;
+      width: 100%;
+      object-fit: cover;
+      border: 2px solid #111;
+      filter: grayscale(50%);
+      transition: .4s;
+    }
+
+    .gallery img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+      border-color: #fff;
+    }
+
+    /* CONTACT */
+
+    .contact {
+  max-width: 900px;
+  margin: -50px auto 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 50px 45px;
+}
+
+    .contact-info p {
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      background: #080808;
+      border: 1px solid rgba(255,255,255,0.6);
+      color: #fff;
+      margin-bottom: 15px;
+      font-family: 'Montserrat', sans-serif;
+      resize: none; /* zákaz roztahování */
+      overflow: hidden; /* skryje scrollbar */
+    }
+
+
+    form button {
+      width: 100%;
+      padding: 15px;
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    form button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #000;
+      border-top: 2px solid #111;
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .about,
+      .contact{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      nav ul{
+        gap:20px;
+      }
+
+      .logo span{
+        display:none;
+      }
+
+    }
+
+/* LOGO FADE-IN */
+
+.hero-content img {
+  opacity: 0;
+  animation: logoFade 1.5s ease forwards;
+}
+
+@keyframes logoFade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* TEXT SLIDE-IN */
+
+.hero h1,
+.hero p {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: textSlide 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes textSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* BUTTON DELAY */
+
+.hero .btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: buttonFade 0.8s ease forwards;
+  animation-delay: 1.4s;
+}
+
+@keyframes buttonFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FORM ERROR STYLE */
+
+.form-group {
+  position: relative;
+}
+
+.form-error {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  display: none;
+}
+
+input.error,
+textarea.error {
+  border-color: #ff6b6b !important;
+}
+
+/* SECTION TITLE SCROLL ANIMATION */
+
+.section-title h2,
+.section-title span {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.section-title.show h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.section-title.show span {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="header-inner">
+
+    <a href="javascript:void(0)" class="logo" id="scrollTop">
+  <img src="logo.png" alt="ERIN Tattoo Logo">
+  <span>ERIN TATTOO</span>
+</a>
+
+    <nav>
+      <ul>
+        <li><a href="#home" id="menuHome">Domů</a></li>
+        <li><a href="#about">Studio</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-content">
+
+    <img src="logo.png" alt="Logo ERIN">
+
+    <h1>TATTOO STUDIO</h1>
+
+    <p>
+      Autentické tetování. Precizní práce. Profesionální tetovací studio s tradicí a vášní pro umění.
+    </p>
+
+    <a href="#contact" class="btn">Objednat se</a>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="section-title">
+  <h2>O Studiu</h2>
+  <span>Kdo jsme</span>
+</div>
+
+  <div class="about">
+
+    <img src="tattoo4.png" alt="Tetování v našem studiu">
+
+    <div>
+      <h3>Tradice. Styl. Respekt.</h3>
+
+      <p>
+        ERIN Tattoo Studio je místo, kde vznikají
+        osobní a nadčasová tetování.
+      </p>
+
+      <p>
+        Každý motiv navrhujeme individuálně.
+        Pracujeme s maximální hygienou
+        a profesionálním vybavením.
+      </p>
+
+      <p>
+        Specializujeme se na tetování všech stylů, od realismu až po blackwork,
+        old-school a custom design.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+  <div class="section-title">
+    <h2>Služby</h2>
+    <span>Co děláme</span>
+  </div>
+
+  <div class="services">
+
+    <div class="service">
+      <h4>Custom Tattoo</h4>
+      <p>Originální návrh přesně pro tebe.</p>
+    </div>
+
+    <div class="service">
+      <h4>Blackwork</h4>
+      <p>Silné kontrasty a čistá práce.</p>
+    </div>
+
+    <div class="service">
+      <h4>Realismus</h4>
+      <p>Portréty a detailní motivy.</p>
+    </div>
+
+    <div class="service">
+      <h4>Cover Up</h4>
+      <p>Zakrytí starých tetování.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+  <div class="section-title">
+    <h2>Galerie</h2>
+    <span>Naše tetování</span>
+  </div>
+
+  <div class="gallery">
+
+    <img src="tattoo1.png" alt="Tetovani detail 1">
+    <img src="tattoo2.png" alt="Tetovani detail 2">
+    <img src="tattoo3.png" alt="Tetovani detail 3">
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="section-title">
+    <h2>Kontakt</h2>
+    
+  </div>
+
+  <div class="contact">
+
+    <div class="contact-info">
+
+      <p><strong>Adresa:</strong> Tattoo Street 13, Praha</p>
+      <p><strong>Telefon:</strong> +420 777 888 999</p>
+      <p><strong>Email:</strong> info@erintattoo.cz</p>
+
+      <p>
+        <strong>Otevírací doba:</strong><br>
+        Po–Pá: 10:00–18:00<br>
+        So: dle objednání
+      </p>
+
+    </div>
+
+    <form id="contactForm" novalidate>
+
+  <div class="form-group">
+    <input type="text" id="name" placeholder="Jméno" required>
+    <div class="form-error">Zadejte prosím Vaše jméno</div>
+  </div>
+
+  <div class="form-group">
+    <input type="tel" id="phone" placeholder="Telefon" required>
+    <div class="form-error">Zadejte prosím Váš telefon</div>
+  </div>
+
+  <div class="form-group">
+    <input type="email" id="email" placeholder="Email" required>
+    <div class="form-error">Zadej prosím Váš email</div>
+  </div>
+
+  <div class="form-group">
+    <textarea id="message" placeholder="Vaše zpráva" rows="3" required></textarea>
+    <div class="form-error">Napište prosím zprávu</div>
+  </div>
+
+  <button type="submit">Odeslat</button>
+
+</form>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2026 ERIN Tattoo Studio • All Rights Reserved</p>
+</footer>
+
+
+<script>
+  document.getElementById("scrollTop").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+<script>
+  document.getElementById("menuHome").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav li");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(li => {
+    li.classList.remove("active");
+
+    const link = li.querySelector("a");
+    if (link && link.getAttribute("href") === "#" + current) {
+      li.classList.add("active");
+    }
+  });
+});
+</script>
+
+<script>
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+});
+</script>
+
+<script>
+const form = document.getElementById("contactForm");
+const fields = form.querySelectorAll("input, textarea");
+
+let wasSubmitted = false;
+
+function validateField(field) {
+  const error = field.parentElement.querySelector(".form-error");
+
+  // Pokud ještě nebyl pokus o odeslání, neukazuj chyby
+  if (!wasSubmitted) {
+    field.classList.remove("error");
+    error.style.display = "none";
+    return true;
+  }
+
+  if (!field.value.trim()) {
+    field.classList.add("error");
+    error.style.display = "block";
+    return false;
+  } else {
+    field.classList.remove("error");
+    error.style.display = "none";
+    return true;
+  }
+}
+
+// Kontrola při odeslání
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  wasSubmitted = true;
+
+  let valid = true;
+
+  fields.forEach(field => {
+    if (!validateField(field)) {
+      valid = false;
+    }
+  });
+
+  if (valid) {
+    alert("Formulář byl úspěšně odeslán ❤️");
+    form.reset();
+    wasSubmitted = false;
+  }
+});
+
+// Reakce na psaní
+fields.forEach(field => {
+  field.addEventListener("input", () => {
+    // Jen smaž chybu, ale znovu ji nevynucuj
+    if (field.value.trim()) {
+      const error = field.parentElement.querySelector(".form-error");
+      field.classList.remove("error");
+      error.style.display = "none";
+    }
+  });
+});
+
+// Automatické zvětšování textarea
+const textarea = document.getElementById("message");
+
+textarea.addEventListener("input", function () {
+  this.style.height = "auto";
+  this.style.height = this.scrollHeight + "px";
+});
+
+</script>
+
+<script>
+const sectionTitles = document.querySelectorAll(".section-title");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.3
+  }
+);
+
+sectionTitles.forEach(title => {
+  observer.observe(title);
+});
+</script>
+
+<script>
+
+// Offsety jen pro problémové sekce
+const sectionOffsets = {
+  services: 120,
+  gallery: 50,
+  contact: 60
+};
+
+// Vybereme menu + tlačítko
+const scrollLinks = document.querySelectorAll(
+  "nav a[href^='#'], .btn[href^='#']"
+);
+
+scrollLinks.forEach(link => {
+
+  link.addEventListener("click", function(e) {
+
+    const id = this.getAttribute("href").substring(1);
+
+    // Domů a Studio necháme normálně
+    if (id === "home" || id === "about") {
+      return;
+    }
+
+    // Jen problematické sekce řešíme ručně
+    if (!sectionOffsets[id]) {
+      return;
+    }
+
+    e.preventDefault();
+
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    const offset = sectionOffsets[id];
+
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset -
+      offset;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth"
+    });
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
