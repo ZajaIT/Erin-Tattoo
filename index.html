@@ -579,11 +579,11 @@ textarea.error {
   /* HERO */
 
   .hero {
-    height: auto;
-    min-height: 90vh;
-    margin-top: 20px;
-    padding: 40px 20px;
-  }
+  height: auto;
+  min-height: auto;
+  margin-top: 0;          /* úplně pryč mezera */
+  padding: 15px 15px 10px; /* méně dole */
+}
 
   .hero-content img {
     max-width: 220px;
@@ -603,12 +603,13 @@ textarea.error {
   .btn {
     padding: 12px 30px;
     font-size: 12px;
+    margin-top: 20px;
   }
 
   /* SECTIONS */
 
   section {
-    padding: 70px 20px;
+    padding: 50px 20px;
   }
 
   .section-title h2 {
@@ -623,7 +624,7 @@ textarea.error {
 
   .about {
     gap: 40px;
-    margin-top: -40px;
+    margin-top: -20px;
   }
 
   .about img {
@@ -1216,6 +1217,7 @@ menu.querySelectorAll("a").forEach(link => {
   
 </body>
 </html>
+
 
 
 
