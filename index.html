@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -579,11 +580,11 @@ textarea.error {
   /* HERO */
 
   .hero {
-  height: auto;
-  min-height: auto;
-  margin-top: 0;          /* úplně pryč mezera */
-  padding: 15px 15px 10px; /* méně dole */
-}
+    height: auto;
+    min-height: 90vh;
+    margin-top: 60px;
+    padding: 40px 20px;
+  }
 
   .hero-content img {
     max-width: 220px;
@@ -603,13 +604,12 @@ textarea.error {
   .btn {
     padding: 12px 30px;
     font-size: 12px;
-    margin-top: 20px;
   }
 
   /* SECTIONS */
 
   section {
-    padding: 50px 20px;
+    padding: 70px 20px;
   }
 
   .section-title h2 {
@@ -624,7 +624,7 @@ textarea.error {
 
   .about {
     gap: 40px;
-    margin-top: -20px;
+    margin-top: -40px;
   }
 
   .about img {
@@ -777,6 +777,25 @@ nav ul.open ~ .hamburger .icon-close {
     display: inline-block;
     font-size: 16px;
     letter-spacing: 2px;
+  }
+
+}
+
+    /* FIX GAP ABOVE HERO ON MOBILE */
+
+@media (max-width: 600px) {
+
+  .hero {
+    margin-top: 0;   /* zruší desktopový posun */
+  }
+
+  header {
+    position: fixed;
+    width: 100%;
+  }
+
+  body {
+    padding-top: 40px; /* výška headeru */
   }
 
 }
@@ -1217,15 +1236,6 @@ menu.querySelectorAll("a").forEach(link => {
   
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
