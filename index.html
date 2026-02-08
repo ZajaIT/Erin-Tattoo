@@ -736,6 +736,37 @@ textarea.error {
   }
 
 }
+
+    /* HAMBURGER / CLOSE ICON */
+
+.hamburger {
+  position: relative;
+  z-index: 1001;
+}
+
+.hamburger .icon-close {
+  display: none;
+}
+
+/* Když je menu otevřené */
+nav ul.open ~ .hamburger .icon-menu {
+  display: none;
+}
+
+nav ul.open ~ .hamburger .icon-close {
+  display: inline;
+}
+
+/* Lepší pozice na mobilu */
+@media (max-width: 600px) {
+
+  .hamburger {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+  }
+
+}
   </style>
 </head>
 <body>
@@ -753,8 +784,9 @@ textarea.error {
     <nav><nav>
 
   <div class="hamburger" id="hamburger">
-    ☰
-  </div>
+  <span class="icon-menu">☰</span>
+  <span class="icon-close">✕</span>
+</div>
       
       <ul>
         <li><a href="#home" id="menuHome">Domů</a></li>
@@ -1145,19 +1177,33 @@ scrollLinks.forEach(link => {
 const hamburger = document.getElementById("hamburger");
 const menu = document.querySelector("nav ul");
 
+const iconMenu = hamburger.querySelector(".icon-menu");
+const iconClose = hamburger.querySelector(".icon-close");
+
 hamburger.addEventListener("click", () => {
   menu.classList.toggle("open");
+
+  if (menu.classList.contains("open")) {
+    iconMenu.style.display = "none";
+    iconClose.style.display = "inline";
+  } else {
+    iconMenu.style.display = "inline";
+    iconClose.style.display = "none";
+  }
 });
 
 // Zavřít po kliknutí na položku
 menu.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     menu.classList.remove("open");
+    iconMenu.style.display = "inline";
+    iconClose.style.display = "none";
   });
 });
 </script>
   
 </body>
 </html>
+
 
 
